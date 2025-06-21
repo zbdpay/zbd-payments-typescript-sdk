@@ -1,6 +1,6 @@
 {
   "name": "@zbdpay/payments-sdk-mcp",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "The official MCP Server for the ZBD Payments API",
   "author": "ZBD <info@zbdpay.com>",
   "types": "dist/index.d.ts",

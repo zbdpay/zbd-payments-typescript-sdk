@@ -26,7 +26,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'zbdpay_payments_sdk_api',
-    version: '1.8.2',
+    version: '1.8.3',
   },
   {
     capabilities: {
