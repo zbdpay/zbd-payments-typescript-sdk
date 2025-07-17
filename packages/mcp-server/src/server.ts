@@ -28,11 +28,7 @@ export const server = new McpServer(
     name: 'zbdpay_payments_sdk_api',
     version: '1.8.2',
   },
-  {
-    capabilities: {
-      tools: {},
-    },
-  },
+  { capabilities: { tools: {} } },
 );
 
 /**
