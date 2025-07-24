@@ -34,6 +34,7 @@ export const tool: Tool = {
     },
     required: [],
   },
+  annotations: {},
 };
 
 export const handler = async (client: ZbdPayments, args: Record<string, unknown> | undefined) => {

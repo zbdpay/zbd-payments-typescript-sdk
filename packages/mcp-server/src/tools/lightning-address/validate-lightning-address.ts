@@ -33,6 +33,9 @@ export const tool: Tool = {
     },
     required: ['address'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: ZbdPayments, args: Record<string, unknown> | undefined) => {
