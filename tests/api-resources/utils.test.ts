@@ -8,7 +8,7 @@ const client = new ZbdPayments({
 });
 
 describe('resource utils', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('checkIPSupport', async () => {
     const responsePromise = client.utils.checkIPSupport('ip');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource utils', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('decodeLightningCharge', async () => {
     const responsePromise = client.utils.decodeLightningCharge();
     const rawResponse = await responsePromise.asResponse();
@@ -32,7 +32,7 @@ describe('resource utils', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('decodeLightningCharge: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -40,7 +40,7 @@ describe('resource utils', () => {
     ).rejects.toThrow(ZbdPayments.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listProdIPs', async () => {
     const responsePromise = client.utils.listProdIPs();
     const rawResponse = await responsePromise.asResponse();
@@ -52,7 +52,7 @@ describe('resource utils', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveBtcUsd', async () => {
     const responsePromise = client.utils.retrieveBtcUsd();
     const rawResponse = await responsePromise.asResponse();

@@ -8,7 +8,7 @@ const client = new ZbdPayments({
 });
 
 describe('resource oauth2', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createAuthorizationURL', async () => {
     const responsePromise = client.oauth2.createAuthorizationURL();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource oauth2', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('refreshToken', async () => {
     const responsePromise = client.oauth2.refreshToken();
     const rawResponse = await responsePromise.asResponse();
@@ -32,7 +32,7 @@ describe('resource oauth2', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveUserData', async () => {
     const responsePromise = client.oauth2.retrieveUserData();
     const rawResponse = await responsePromise.asResponse();
@@ -44,7 +44,7 @@ describe('resource oauth2', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveUserData: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -52,7 +52,7 @@ describe('resource oauth2', () => {
     ).rejects.toThrow(ZbdPayments.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveWalletData', async () => {
     const responsePromise = client.oauth2.retrieveWalletData();
     const rawResponse = await responsePromise.asResponse();
@@ -64,7 +64,7 @@ describe('resource oauth2', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieveWalletData: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(

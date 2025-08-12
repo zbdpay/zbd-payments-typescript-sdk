@@ -8,7 +8,7 @@ const client = new ZbdPayments({
 });
 
 describe('resource lightningAddress', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createCharge', async () => {
     const responsePromise = client.lightningAddress.createCharge();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource lightningAddress', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createCharge: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -31,7 +31,7 @@ describe('resource lightningAddress', () => {
     ).rejects.toThrow(ZbdPayments.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('sendPayment', async () => {
     const responsePromise = client.lightningAddress.sendPayment();
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +43,7 @@ describe('resource lightningAddress', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('sendPayment: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -60,7 +60,7 @@ describe('resource lightningAddress', () => {
     ).rejects.toThrow(ZbdPayments.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('validate', async () => {
     const responsePromise = client.lightningAddress.validate('address');
     const rawResponse = await responsePromise.asResponse();
