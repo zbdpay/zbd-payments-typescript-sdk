@@ -31,6 +31,7 @@ export const tool: Tool = {
       metadata: {
         type: 'object',
         description: 'Open metadata object property',
+        additionalProperties: true,
       },
       pubkey: {
         type: 'string',
