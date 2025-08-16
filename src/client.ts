@@ -759,6 +759,7 @@ export class ZbdPayments {
   keysendPayments: API.KeysendPayments = new API.KeysendPayments(this);
   emailPayments: API.EmailPayments = new API.EmailPayments(this);
 }
+
 ZbdPayments.Gamertags = Gamertags;
 ZbdPayments.LightningCharges = LightningCharges;
 ZbdPayments.InternalTransfer = InternalTransfer;
@@ -772,6 +773,7 @@ ZbdPayments.Utils = Utils;
 ZbdPayments.Oauth2 = Oauth2;
 ZbdPayments.KeysendPayments = KeysendPayments;
 ZbdPayments.EmailPayments = EmailPayments;
+
 export declare namespace ZbdPayments {
   export type RequestOptions = Opts.RequestOptions;
 
