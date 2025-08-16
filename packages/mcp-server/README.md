@@ -133,15 +133,15 @@ Authorization can be provided via the following headers:
 | -------- | ------------------------ | --------------- |
 | `apikey` | `apikey` | apikeyAuth |
 
-A configuration JSON for this server might look like this:
+A configuration JSON for this server might look like this, assuming the server is hosted at `http://localhost:3000`:
 
 ```json
 {
   "mcpServers": {
     "zbdpay_payments_sdk_api": {
-      "url": "http://localhost:3000", # or wherever the server is hosted
+      "url": "http://localhost:3000",
       "headers": {
-        'apikey': 'My Apikey'
+        "apikey": "My Apikey"
       }
     }
   }
