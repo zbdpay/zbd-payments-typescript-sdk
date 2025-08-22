@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from '@zbdpay/payments-sdk/client';
+import { ClientOptions } from '@zbdpay/payments-sdk';
 
 export type WorkerInput = {
   opts: ClientOptions;
