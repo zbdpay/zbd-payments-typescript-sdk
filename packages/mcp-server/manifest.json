@@ -1,0 +1,42 @@
+{
+  "dxt_version": "0.1",
+  "name": "@zbdpay/payments-sdk-mcp",
+  "version": "1.8.2",
+  "description": "The official MCP Server for the Zbd Payments API",
+  "author": {
+    "name": "Zbd Payments",
+    "email": "info@zbdpay.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbdpay/zbd-payments-typescript-sdk.git"
+  },
+  "homepage": "https://github.com/zbdpay/zbd-payments-typescript-sdk/tree/main/packages/mcp-server#readme",
+  "documentation": "https://docs.zbdpay.com",
+  "server": {
+    "type": "node",
+    "entry_point": "${__dirname}/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "ZBD_PAYMENTS_API_KEY": "${user_config.ZBD_PAYMENTS_API_KEY}"
+      }
+    }
+  },
+  "user_config": {
+    "ZBD_PAYMENTS_API_KEY": {
+      "title": "apikey",
+      "description": "",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}
