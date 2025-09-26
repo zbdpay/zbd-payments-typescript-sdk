@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@zbdpay/payments-sdk-mcp/*": ["dist/src/*"],
-      "@zbdpay/payments-sdk-mcp": ["dist/src/index.ts"]
+      "@zbdpay/payments-sdk-mcp/*": ["./dist/src/*"],
+      "@zbdpay/payments-sdk-mcp": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
