@@ -2,6 +2,7 @@
 
 import util from 'node:util';
 
+import Fuse from 'fuse.js';
 import ts from 'typescript';
 
 import { WorkerInput, WorkerSuccess, WorkerError } from './code-tool-types';
@@ -39,8 +40,126 @@ function getRunFunctionNode(
   return null;
 }
 
+const fuse = new Fuse(
+  [
+    'client.gamertags.createCharge',
+    'client.gamertags.retrieveByGamertag',
+    'client.gamertags.retrieveByZbdID',
+    'client.gamertags.retrievePayment',
+    'client.gamertags.sendPayment',
+    'client.lightningCharges.create',
+    'client.lightningCharges.retrieve',
+    'client.internalTransfer.initiate',
+    'client.lightningAddress.createCharge',
+    'client.lightningAddress.sendPayment',
+    'client.lightningAddress.validate',
+    'client.lightningStaticCharges.create',
+    'client.lightningStaticCharges.retrieve',
+    'client.lightningStaticCharges.update',
+    'client.vouchers.create',
+    'client.vouchers.redeem',
+    'client.vouchers.retrieve',
+    'client.vouchers.revoke',
+    'client.withdrawalRequests.create',
+    'client.withdrawalRequests.retrieve',
+    'client.lightningPayments.retrieve',
+    'client.lightningPayments.send',
+    'client.wallet.retrieveBalance',
+    'client.utils.checkIPSupport',
+    'client.utils.decodeLightningCharge',
+    'client.utils.listProdIPs',
+    'client.utils.retrieveBtcUsd',
+    'client.oauth2.createAuthorizationURL',
+    'client.oauth2.refreshToken',
+    'client.oauth2.retrieveUserData',
+    'client.oauth2.retrieveWalletData',
+    'client.keysendPayments.send',
+    'client.emailPayments.send',
+  ],
+  { threshold: 1, shouldSort: true },
+);
+
+function getMethodSuggestions(fullyQualifiedMethodName: string): string[] {
+  return fuse
+    .search(fullyQualifiedMethodName)
+    .map(({ item }) => item)
+    .slice(0, 5);
+}
+
+const proxyToObj = new WeakMap<any, any>();
+const objToProxy = new WeakMap<any, any>();
+
+type ClientProxyConfig = {
+  path: string[];
+  isBelievedBad?: boolean;
+};
+
+function makeSdkProxy<T extends object>(obj: T, { path, isBelievedBad = false }: ClientProxyConfig): T {
+  let proxy: T = objToProxy.get(obj);
+
+  if (!proxy) {
+    proxy = new Proxy(obj, {
+      get(target, prop, receiver) {
+        const propPath = [...path, String(prop)];
+        const value = Reflect.get(target, prop, receiver);
+
+        if (isBelievedBad || (!(prop in target) && value === undefined)) {
+          // If we're accessing a path that doesn't exist, it will probably eventually error.
+          // Let's proxy it and mark it bad so that we can control the error message.
+          // We proxy an empty class so that an invocation or construction attempt is possible.
+          return makeSdkProxy(class {}, { path: propPath, isBelievedBad: true });
+        }
+
+        if (value !== null && (typeof value === 'object' || typeof value === 'function')) {
+          return makeSdkProxy(value, { path: propPath, isBelievedBad });
+        }
+
+        return value;
+      },
+
+      apply(target, thisArg, args) {
+        if (isBelievedBad || typeof target !== 'function') {
+          const fullyQualifiedMethodName = path.join('.');
+          const suggestions = getMethodSuggestions(fullyQualifiedMethodName);
+          throw new Error(
+            `${fullyQualifiedMethodName} is not a function. Did you mean: ${suggestions.join(', ')}`,
+          );
+        }
+
+        return Reflect.apply(target, proxyToObj.get(thisArg) ?? thisArg, args);
+      },
+
+      construct(target, args, newTarget) {
+        if (isBelievedBad || typeof target !== 'function') {
+          const fullyQualifiedMethodName = path.join('.');
+          const suggestions = getMethodSuggestions(fullyQualifiedMethodName);
+          throw new Error(
+            `${fullyQualifiedMethodName} is not a constructor. Did you mean: ${suggestions.join(', ')}`,
+          );
+        }
+
+        return Reflect.construct(target, args, newTarget);
+      },
+    });
+
+    objToProxy.set(obj, proxy);
+    proxyToObj.set(proxy, obj);
+  }
+
+  return proxy;
+}
+
 const fetch = async (req: Request): Promise<Response> => {
   const { opts, code } = (await req.json()) as WorkerInput;
+  if (code == null) {
+    return Response.json(
+      {
+        message:
+          'The code param is missing. Provide one containing a top-level `run` function. Write code within this template:\n\n```\nasync function run(client) {\n  // Fill this out\n}\n```',
+      } satisfies WorkerError,
+      { status: 400, statusText: 'Code execution error' },
+    );
+  }
 
   const runFunctionNode = getRunFunctionNode(code);
   if (!runFunctionNode) {
@@ -73,7 +192,7 @@ const fetch = async (req: Request): Promise<Response> => {
       ${code}
       run_ = run;
     `);
-    const result = await run_(client);
+    const result = await run_(makeSdkProxy(client, { path: ['client'] }));
     return Response.json({
       result,
       logLines,
