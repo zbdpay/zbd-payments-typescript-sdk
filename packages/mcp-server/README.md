@@ -37,7 +37,7 @@ For clients with a configuration JSON, it might look something like this:
 If you use Cursor, you can install the MCP server by using the button below. You will need to set your environment variables
 in Cursor's `mcp.json`, which can be found in Cursor Settings > Tools & MCP > New MCP Server.
 
-[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=@zbdpay/payments-sdk-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB6YmRwYXkvcGF5bWVudHMtc2RrLW1jcCJdLCJlbnYiOnsiWkJEX1BBWU1FTlRTX0FQSV9LRVkiOiJTZXQgeW91ciBaQkRfUEFZTUVOVFNfQVBJX0tFWSBoZXJlLiJ9fQ)
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40zbdpay%2Fpayments-sdk-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB6YmRwYXkvcGF5bWVudHMtc2RrLW1jcCJdLCJlbnYiOnsiWkJEX1BBWU1FTlRTX0FQSV9LRVkiOiJTZXQgeW91ciBaQkRfUEFZTUVOVFNfQVBJX0tFWSBoZXJlLiJ9fQ)
 
 ### VS Code
 
@@ -52,7 +52,7 @@ If you use Claude Code, you can install the MCP server by running the command be
 environment variables in Claude Code's `.claude.json`, which can be found in your home directory.
 
 ```
-claude mcp add --transport stdio zbdpay_payments_sdk_api --env ZBD_PAYMENTS_API_KEY="Your ZBD_PAYMENTS_API_KEY here." -- npx -y @zbdpay/payments-sdk-mcp
+claude mcp add zbdpay_payments_sdk_mcp_api --env ZBD_PAYMENTS_API_KEY="Your ZBD_PAYMENTS_API_KEY here." -- npx -y @zbdpay/payments-sdk-mcp
 ```
 
 ## Code Mode
