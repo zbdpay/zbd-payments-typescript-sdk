@@ -71,7 +71,11 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const response = await client.lightningAddress
-  .sendPayment({ amount: '500000', comment: 'Instant global payments', lnAddress: 'andreneves@zbd.gg' })
+  .sendPayment({
+    amount: '500000',
+    comment: 'Instant global payments',
+    lnAddress: 'andreneves@zbd.gg',
+  })
   .catch(async (err) => {
     if (err instanceof ZbdPayments.APIError) {
       console.log(err.status); // 400
@@ -112,7 +116,11 @@ const client = new ZbdPayments({
 });
 
 // Or, configure per-request:
-await client.lightningAddress.sendPayment({ amount: '500000', comment: 'Instant global payments', lnAddress: 'andreneves@zbd.gg' }, {
+await client.lightningAddress.sendPayment({
+  amount: '500000',
+  comment: 'Instant global payments',
+  lnAddress: 'andreneves@zbd.gg',
+}, {
   maxRetries: 5,
 });
 ```
@@ -129,7 +137,11 @@ const client = new ZbdPayments({
 });
 
 // Override per-request:
-await client.lightningAddress.sendPayment({ amount: '500000', comment: 'Instant global payments', lnAddress: 'andreneves@zbd.gg' }, {
+await client.lightningAddress.sendPayment({
+  amount: '500000',
+  comment: 'Instant global payments',
+  lnAddress: 'andreneves@zbd.gg',
+}, {
   timeout: 5 * 1000,
 });
 ```
@@ -153,13 +165,21 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 const client = new ZbdPayments();
 
 const response = await client.lightningAddress
-  .sendPayment({ amount: '500000', comment: 'Instant global payments', lnAddress: 'andreneves@zbd.gg' })
+  .sendPayment({
+    amount: '500000',
+    comment: 'Instant global payments',
+    lnAddress: 'andreneves@zbd.gg',
+  })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: result, response: raw } = await client.lightningAddress
-  .sendPayment({ amount: '500000', comment: 'Instant global payments', lnAddress: 'andreneves@zbd.gg' })
+  .sendPayment({
+    amount: '500000',
+    comment: 'Instant global payments',
+    lnAddress: 'andreneves@zbd.gg',
+  })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(result);

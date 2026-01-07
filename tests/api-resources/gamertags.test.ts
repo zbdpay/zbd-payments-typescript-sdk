@@ -91,7 +91,11 @@ describe('resource gamertags', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.gamertags.sendPayment(
-        { amount: 'string', description: 'string', gamertag: 'string' },
+        {
+          amount: 'string',
+          description: 'string',
+          gamertag: 'string',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(ZbdPayments.NotFoundError);
