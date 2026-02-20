@@ -8,7 +8,7 @@ const client = new ZbdPayments({
 });
 
 describe('resource wallet', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieveBalance', async () => {
     const responsePromise = client.wallet.retrieveBalance();
     const rawResponse = await responsePromise.asResponse();

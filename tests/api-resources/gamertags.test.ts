@@ -8,7 +8,7 @@ const client = new ZbdPayments({
 });
 
 describe('resource gamertags', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('createCharge', async () => {
     const responsePromise = client.gamertags.createCharge();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource gamertags', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('createCharge: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -38,7 +38,7 @@ describe('resource gamertags', () => {
     ).rejects.toThrow(ZbdPayments.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieveByGamertag', async () => {
     const responsePromise = client.gamertags.retrieveByGamertag('gamertag');
     const rawResponse = await responsePromise.asResponse();
@@ -50,7 +50,7 @@ describe('resource gamertags', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieveByZbdID', async () => {
     const responsePromise = client.gamertags.retrieveByZbdID('id');
     const rawResponse = await responsePromise.asResponse();
@@ -62,7 +62,7 @@ describe('resource gamertags', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrievePayment', async () => {
     const responsePromise = client.gamertags.retrievePayment('id');
     const rawResponse = await responsePromise.asResponse();
@@ -74,7 +74,7 @@ describe('resource gamertags', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('sendPayment', async () => {
     const responsePromise = client.gamertags.sendPayment();
     const rawResponse = await responsePromise.asResponse();
@@ -86,7 +86,7 @@ describe('resource gamertags', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('sendPayment: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
