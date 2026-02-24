@@ -60,7 +60,7 @@ $ yarn link @zbdpay/payments-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @zbdpay/payments-sdk
+$ pnpm link --global @zbdpay/payments-sdk
 ```
 
 ## Running tests
