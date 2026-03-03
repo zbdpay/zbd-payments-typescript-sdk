@@ -5,6 +5,9 @@ import { APIPromise } from '../core/api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
+/**
+ * Keysend Payments endpoints
+ */
 export class KeysendPayments extends APIResource {
   /**
    * Start sending Keysend payments on the Lightning Network.

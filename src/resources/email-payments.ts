@@ -5,6 +5,9 @@ import { APIPromise } from '../core/api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
+/**
+ * Email endpoints
+ */
 export class EmailPayments extends APIResource {
   /**
    * Send instant Bitcoin payments to any email.

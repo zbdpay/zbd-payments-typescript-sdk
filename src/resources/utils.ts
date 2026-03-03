@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Utilities endpoints
+ */
 export class Utils extends APIResource {
   /**
    * Verify if a user is coming from a supported region.

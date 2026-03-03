@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Lightning Address endpoints
+ */
 export class LightningAddress extends APIResource {
   /**
    * Generate a payment request for a Lightning Address.

@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Lightning Payments endpoints
+ */
 export class LightningPayments extends APIResource {
   /**
    * Retrieve all data about a single Payment.

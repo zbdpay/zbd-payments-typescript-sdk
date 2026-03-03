@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Withdrawal Requests endpoints
+ */
 export class WithdrawalRequests extends APIResource {
   /**
    * Start creating Bitcoin voucher QR codes.

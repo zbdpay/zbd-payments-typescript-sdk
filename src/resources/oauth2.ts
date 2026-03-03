@@ -5,6 +5,9 @@ import { APIPromise } from '../core/api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
+/**
+ * OAuth2 endpoints
+ */
 export class Oauth2 extends APIResource {
   /**
    * Create an authorization URL for ZBD Login.

@@ -748,18 +748,57 @@ export class ZbdPayments {
 
   static toFile = Uploads.toFile;
 
+  /**
+   * ZBD Gamertag endpoints
+   */
   gamertags: API.Gamertags = new API.Gamertags(this);
+  /**
+   * Lightning Charges endpoints
+   */
   lightningCharges: API.LightningCharges = new API.LightningCharges(this);
+  /**
+   * Internal Transfers endpoints
+   */
   internalTransfer: API.InternalTransfer = new API.InternalTransfer(this);
+  /**
+   * Lightning Address endpoints
+   */
   lightningAddress: API.LightningAddress = new API.LightningAddress(this);
+  /**
+   * Lightning Charges endpoints
+   */
   lightningStaticCharges: API.LightningStaticCharges = new API.LightningStaticCharges(this);
+  /**
+   * Vouchers endpoints
+   */
   vouchers: API.Vouchers = new API.Vouchers(this);
+  /**
+   * Withdrawal Requests endpoints
+   */
   withdrawalRequests: API.WithdrawalRequests = new API.WithdrawalRequests(this);
+  /**
+   * Lightning Payments endpoints
+   */
   lightningPayments: API.LightningPayments = new API.LightningPayments(this);
+  /**
+   * Wallet endpoints
+   */
   wallet: API.Wallet = new API.Wallet(this);
+  /**
+   * Utilities endpoints
+   */
   utils: API.Utils = new API.Utils(this);
+  /**
+   * OAuth2 endpoints
+   */
   oauth2: API.Oauth2 = new API.Oauth2(this);
+  /**
+   * Keysend Payments endpoints
+   */
   keysendPayments: API.KeysendPayments = new API.KeysendPayments(this);
+  /**
+   * Email endpoints
+   */
   emailPayments: API.EmailPayments = new API.EmailPayments(this);
 }
 

@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * ZBD Gamertag endpoints
+ */
 export class Gamertags extends APIResource {
   /**
    * Generate a payment request for a ZBD User.

@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Lightning Charges endpoints
+ */
 export class LightningCharges extends APIResource {
   /**
    * Start receiving instant Bitcoin payments through the ZBD API.

@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Vouchers endpoints
+ */
 export class Vouchers extends APIResource {
   /**
    * Create Voucher

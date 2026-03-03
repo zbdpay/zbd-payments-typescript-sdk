@@ -5,6 +5,9 @@ import { APIPromise } from '../core/api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
+/**
+ * Internal Transfers endpoints
+ */
 export class InternalTransfer extends APIResource {
   /**
    * Performs a transfer of funds between two Projects.

@@ -5,6 +5,9 @@ import { APIPromise } from '../core/api-promise';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
+/**
+ * Wallet endpoints
+ */
 export class Wallet extends APIResource {
   /**
    * Retrieve all data about a ZBD Project's Wallet.

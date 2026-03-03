@@ -6,6 +6,9 @@ import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
+/**
+ * Lightning Charges endpoints
+ */
 export class LightningStaticCharges extends APIResource {
   /**
    * Start accepting payments on Lightning with Static QR codes.
