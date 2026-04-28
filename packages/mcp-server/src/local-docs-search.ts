@@ -69,19 +69,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create_charge\n\n`client.gamertags.createCharge(amount?: string, callbackUrl?: string, description?: string, expiresIn?: number, gamertag?: string, internalId?: string): void`\n\n**post** `/v0/gamertag/charges`\n\nGenerate a payment request for a ZBD User.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Payment -> in millisatoshis\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `description?: string`\n  Note or comment for this Payment (visible to recipient)\n\n- `expiresIn?: number`\n  Time until Charge expiration -> in seconds\n\n- `gamertag?: string`\n  Destination ZBD Gamertag\n\n- `internalId?: string`\n  Open metadata string property\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.gamertags.createCharge()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.gamertags.createCharge',
         example:
-          'curl https://api.zebedee.io/v0/gamertag/charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.createCharge({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  gamertag: 'string',\n  internalId: 'string',\n});",
       },
       python: {
         method: 'gamertags.create_charge',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.gamertags.create_charge(\n    amount="string",\n    callback_url="string",\n    description="string",\n    expires_in=NaN,\n    gamertag="string",\n    internal_id="string",\n)',
       },
-      typescript: {
-        method: 'client.gamertags.createCharge',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.createCharge({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  gamertag: 'string',\n  internalId: 'string',\n});",
+          'curl https://api.zebedee.io/v0/gamertag/charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -97,19 +97,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_by_zbd_id\n\n`client.gamertags.retrieveByZbdID(id: string): void`\n\n**get** `/v0/gamertag/user-id/{id}`\n\nRetrieve ZBD user ID from a Gamertag.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.gamertags.retrieveByZbdID('id')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.gamertags.retrieveByZbdID',
         example:
-          'curl https://api.zebedee.io/v0/gamertag/user-id/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrieveByZbdID('id');",
       },
       python: {
         method: 'gamertags.retrieve_by_zbd_id',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.gamertags.retrieve_by_zbd_id(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.gamertags.retrieveByZbdID',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrieveByZbdID('id');",
+          'curl https://api.zebedee.io/v0/gamertag/user-id/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -125,19 +125,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_payment\n\n`client.gamertags.retrievePayment(id: string): void`\n\n**get** `/v0/gamertag/transaction/{id}`\n\nRetrieve all data about a Payment sent to ZBD User.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.gamertags.retrievePayment('id')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.gamertags.retrievePayment',
         example:
-          'curl https://api.zebedee.io/v0/gamertag/transaction/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrievePayment('id');",
       },
       python: {
         method: 'gamertags.retrieve_payment',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.gamertags.retrieve_payment(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.gamertags.retrievePayment',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrievePayment('id');",
+          'curl https://api.zebedee.io/v0/gamertag/transaction/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -153,19 +153,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## send_payment\n\n`client.gamertags.sendPayment(amount?: string, description?: string, gamertag?: string): void`\n\n**post** `/v0/gamertag/send-payment`\n\nSend instant Bitcoin payments to ZBD Users.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Payment -> in millisatoshis\n\n- `description?: string`\n  Note or comment for this Payment (visible to recipient)\n\n- `gamertag?: string`\n  Destination ZBD Gamertag\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.gamertags.sendPayment()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.gamertags.sendPayment',
         example:
-          'curl https://api.zebedee.io/v0/gamertag/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.sendPayment({\n  amount: 'string',\n  description: 'string',\n  gamertag: 'string',\n});",
       },
       python: {
         method: 'gamertags.send_payment',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.gamertags.send_payment(\n    amount="string",\n    description="string",\n    gamertag="string",\n)',
       },
-      typescript: {
-        method: 'client.gamertags.sendPayment',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.sendPayment({\n  amount: 'string',\n  description: 'string',\n  gamertag: 'string',\n});",
+          'curl https://api.zebedee.io/v0/gamertag/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -181,19 +181,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_by_gamertag\n\n`client.gamertags.retrieveByGamertag(gamertag: string): void`\n\n**get** `/v0/user-id/gamertag/{gamertag}`\n\nRetrieve Gamertag from a ZBD user ID.\n\n### Parameters\n\n- `gamertag: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.gamertags.retrieveByGamertag('gamertag')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.gamertags.retrieveByGamertag',
         example:
-          'curl https://api.zebedee.io/v0/user-id/gamertag/$GAMERTAG \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrieveByGamertag('gamertag');",
       },
       python: {
         method: 'gamertags.retrieve_by_gamertag',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.gamertags.retrieve_by_gamertag(\n    "gamertag",\n)',
       },
-      typescript: {
-        method: 'client.gamertags.retrieveByGamertag',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.gamertags.retrieveByGamertag('gamertag');",
+          'curl https://api.zebedee.io/v0/user-id/gamertag/$GAMERTAG \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -215,19 +215,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.lightningCharges.create(amount?: string, callbackUrl?: string, description?: string, expiresIn?: number, internalId?: string): void`\n\n**post** `/v0/charges`\n\nStart receiving instant Bitcoin payments through the ZBD API.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Charge -> in millisatoshis\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `description?: string`\n  Note or comment for this Charge (visible to payer)\n\n- `expiresIn?: number`\n  Time until Charge expiration -> in seconds\n\n- `internalId?: string`\n  Open metadata string property\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningCharges.create()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningCharges.create',
         example:
-          'curl https://api.zebedee.io/v0/charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningCharges.create({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  internalId: 'string',\n});",
       },
       python: {
         method: 'lightning_charges.create',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_charges.create(\n    amount="string",\n    callback_url="string",\n    description="string",\n    expires_in=NaN,\n    internal_id="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningCharges.create',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningCharges.create({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  internalId: 'string',\n});",
+          'curl https://api.zebedee.io/v0/charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -243,18 +243,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.lightningCharges.retrieve(id: string): void`\n\n**get** `/v0/charges/{id}`\n\nRetrieve all data about a single Charge.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningCharges.retrieve('id')\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/charges/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.lightningCharges.retrieve',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningCharges.retrieve('id');",
       },
       python: {
         method: 'lightning_charges.retrieve',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_charges.retrieve(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.lightningCharges.retrieve',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningCharges.retrieve('id');",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/charges/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -270,19 +270,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## initiate\n\n`client.internalTransfer.initiate(amount?: string, receiverWalletId?: string): void`\n\n**post** `/v0/internal-transfer`\n\nPerforms a transfer of funds between two Projects.\n\n### Parameters\n\n- `amount?: string`\n  The amount to be transferred -> in millisatoshis\n\n- `receiverWalletId?: string`\n  The Wallet ID of the recipient Project\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.internalTransfer.initiate()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.internalTransfer.initiate',
         example:
-          'curl https://api.zebedee.io/v0/internal-transfer \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.internalTransfer.initiate({ amount: 'string', receiverWalletId: 'string' });",
       },
       python: {
         method: 'internal_transfer.initiate',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.internal_transfer.initiate(\n    amount="string",\n    receiver_wallet_id="string",\n)',
       },
-      typescript: {
-        method: 'client.internalTransfer.initiate',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.internalTransfer.initiate({ amount: 'string', receiverWalletId: 'string' });",
+          'curl https://api.zebedee.io/v0/internal-transfer \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -298,19 +298,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create_charge\n\n`client.lightningAddress.createCharge(amount?: string, description?: string, lnaddress?: string): void`\n\n**post** `/v0/ln-address/fetch-charge`\n\nGenerate a payment request for a Lightning Address.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Charge -> in millisatoshis\n\n- `description?: string`\n  Note or comment of this Charge\n\n- `lnaddress?: string`\n  The Lightning Address of the intended recipient\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningAddress.createCharge()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningAddress.createCharge',
         example:
-          'curl https://api.zebedee.io/v0/ln-address/fetch-charge \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.createCharge({\n  amount: 'string',\n  description: 'string',\n  lnaddress: 'string',\n});",
       },
       python: {
         method: 'lightning_address.create_charge',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_address.create_charge(\n    amount="string",\n    description="string",\n    lnaddress="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningAddress.createCharge',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.createCharge({\n  amount: 'string',\n  description: 'string',\n  lnaddress: 'string',\n});",
+          'curl https://api.zebedee.io/v0/ln-address/fetch-charge \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -332,19 +332,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## send_payment\n\n`client.lightningAddress.sendPayment(amount?: string, callbackUrl?: string, comment?: string, internalId?: string, lnAddress?: string): void`\n\n**post** `/v0/ln-address/send-payment`\n\nSend instant Bitcoin payments to any Lightning Address.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Payment -> in millisatoshis\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `comment?: string`\n  Note or description of this Payment\n\n- `internalId?: string`\n  Open metadata string property\n\n- `lnAddress?: string`\n  The Lightning Address of the intended recipient (e.g. andre@zbd.gg)\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningAddress.sendPayment()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningAddress.sendPayment',
         example:
-          'curl https://api.zebedee.io/v0/ln-address/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.sendPayment({\n  amount: 'string',\n  callbackUrl: 'string',\n  comment: 'string',\n  internalId: 'string',\n  lnAddress: 'string',\n});",
       },
       python: {
         method: 'lightning_address.send_payment',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_address.send_payment(\n    amount="string",\n    callback_url="string",\n    comment="string",\n    internal_id="string",\n    ln_address="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningAddress.sendPayment',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.sendPayment({\n  amount: 'string',\n  callbackUrl: 'string',\n  comment: 'string',\n  internalId: 'string',\n  lnAddress: 'string',\n});",
+          'curl https://api.zebedee.io/v0/ln-address/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -360,19 +360,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## validate\n\n`client.lightningAddress.validate(address: string): void`\n\n**get** `/v0/ln-address/validate/{address}`\n\nVerify the validity of a Lightning Address.\n\n### Parameters\n\n- `address: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningAddress.validate('address')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningAddress.validate',
         example:
-          'curl https://api.zebedee.io/v0/ln-address/validate/$ADDRESS \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.validate('address');",
       },
       python: {
         method: 'lightning_address.validate',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_address.validate(\n    "address",\n)',
       },
-      typescript: {
-        method: 'client.lightningAddress.validate',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningAddress.validate('address');",
+          'curl https://api.zebedee.io/v0/ln-address/validate/$ADDRESS \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -397,19 +397,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.lightningStaticCharges.create(allowedSlots?: number, callbackUrl?: string, description?: string, identifier?: string, internalId?: string, maxAmount?: string, minAmount?: string, successMessage?: string): void`\n\n**post** `/v0/static-charges`\n\nStart accepting payments on Lightning with Static QR codes.\n\n### Parameters\n\n- `allowedSlots?: number`\n  Number of payments this Static Charge can accept\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `description?: string`\n  Note or comment for this Static Charge (visible to payer)\n\n- `identifier?: string`\n  Used for Custom Lightning Addresses (see guide)\n\n- `internalId?: string`\n  Open metadata string property\n\n- `maxAmount?: string`\n  Maximum allowed amount for the Static Charge -> in millisatoshis\n\n- `minAmount?: string`\n  Minimum allowed amount for the Static Charge -> in millisatoshis\n\n- `successMessage?: string`\n  Message displayed to the payer AFTER payment settles. Maximum of 144 characters.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningStaticCharges.create()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningStaticCharges.create',
         example:
-          'curl https://api.zebedee.io/v0/static-charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.create({\n  allowedSlots: 123,\n  callbackUrl: 'string',\n  description: 'string',\n  identifier: 'string',\n  internalId: 'string',\n  maxAmount: 'string',\n  minAmount: 'string',\n  successMessage: 'string',\n});",
       },
       python: {
         method: 'lightning_static_charges.create',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_static_charges.create(\n    allowed_slots=123,\n    callback_url="string",\n    description="string",\n    identifier="string",\n    internal_id="string",\n    max_amount="string",\n    min_amount="string",\n    success_message="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningStaticCharges.create',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.create({\n  allowedSlots: 123,\n  callbackUrl: 'string',\n  description: 'string',\n  identifier: 'string',\n  internalId: 'string',\n  maxAmount: 'string',\n  minAmount: 'string',\n  successMessage: 'string',\n});",
+          'curl https://api.zebedee.io/v0/static-charges \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -425,19 +425,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.lightningStaticCharges.retrieve(id: string): void`\n\n**get** `/v0/static-charges/{id}`\n\nRetrieve all data about a single Static Charge.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningStaticCharges.retrieve('id')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningStaticCharges.retrieve',
         example:
-          'curl https://api.zebedee.io/v0/static-charges/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.retrieve('id');",
       },
       python: {
         method: 'lightning_static_charges.retrieve',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_static_charges.retrieve(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.lightningStaticCharges.retrieve',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.retrieve('id');",
+          'curl https://api.zebedee.io/v0/static-charges/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -462,19 +462,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.lightningStaticCharges.update(id: string, allowedSlots?: number, callbackUrl?: string, description?: string, internalId?: string, maxAmount?: string, minAmount?: string, successMessage?: string): void`\n\n**patch** `/v0/static-charges/{id}`\n\nChange the configuration of a Static Charge QR code.\n\n### Parameters\n\n- `id: string`\n\n- `allowedSlots?: number`\n  Number of payments this Static Charge can accept\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `description?: string`\n  Note or comment for this Static Charge (visible to payer)\n\n- `internalId?: string`\n  Open metadata string property\n\n- `maxAmount?: string`\n  Maximum allowed amount for the Static Charge -> in millisatoshis\n\n- `minAmount?: string`\n  Minimum allowed amount for the Static Charge -> in millisatoshis\n\n- `successMessage?: string`\n  Message displayed to the payer AFTER payment settles\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningStaticCharges.update('id')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningStaticCharges.update',
         example:
-          'curl https://api.zebedee.io/v0/static-charges/$ID \\\n    -X PATCH \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.update('id', {\n  allowedSlots: 123,\n  callbackUrl: 'string',\n  description: 'string',\n  internalId: 'string',\n  maxAmount: 'string',\n  minAmount: 'string',\n  successMessage: 'string',\n});",
       },
       python: {
         method: 'lightning_static_charges.update',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_static_charges.update(\n    id="id",\n    allowed_slots=123,\n    callback_url="string",\n    description="string",\n    internal_id="string",\n    max_amount="string",\n    min_amount="string",\n    success_message="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningStaticCharges.update',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningStaticCharges.update('id', {\n  allowedSlots: 123,\n  callbackUrl: 'string',\n  description: 'string',\n  internalId: 'string',\n  maxAmount: 'string',\n  minAmount: 'string',\n  successMessage: 'string',\n});",
+          'curl https://api.zebedee.io/v0/static-charges/$ID \\\n    -X PATCH \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -490,19 +490,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.vouchers.create(amount?: string, description?: string): void`\n\n**post** `/v1/create-voucher`\n\nCreate Voucher\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Charge -> in millisatoshis\n\n- `description?: string`\n  Note or comment for this Charge (visible to payer)\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.vouchers.create()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.vouchers.create',
         example:
-          'curl https://api.zebedee.io/v1/create-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.create({ amount: 'string', description: 'string' });",
       },
       python: {
         method: 'vouchers.create',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.vouchers.create(\n    amount="string",\n    description="string",\n)',
       },
-      typescript: {
-        method: 'client.vouchers.create',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.create({ amount: 'string', description: 'string' });",
+          'curl https://api.zebedee.io/v1/create-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -518,18 +518,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.vouchers.retrieve(id: string): void`\n\n**get** `/v0/vouchers/{id}`\n\nGet Voucher\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.vouchers.retrieve('id')\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/vouchers/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.vouchers.retrieve',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.retrieve('id');",
       },
       python: {
         method: 'vouchers.retrieve',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.vouchers.retrieve(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.vouchers.retrieve',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.retrieve('id');",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/vouchers/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -545,19 +545,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## redeem\n\n`client.vouchers.redeem(code?: string): void`\n\n**post** `/v0/redeem-voucher`\n\nRedeem Voucher\n\n### Parameters\n\n- `code?: string`\n  Valid 8-digit ZBD Voucher Code\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.vouchers.redeem()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.vouchers.redeem',
         example:
-          'curl https://api.zebedee.io/v0/redeem-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.redeem({ code: 'string' });",
       },
       python: {
         method: 'vouchers.redeem',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.vouchers.redeem(\n    code="string",\n)',
       },
-      typescript: {
-        method: 'client.vouchers.redeem',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.redeem({ code: 'string' });",
+          'curl https://api.zebedee.io/v0/redeem-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -573,19 +573,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## revoke\n\n`client.vouchers.revoke(code?: string): void`\n\n**post** `/v0/revoke-voucher`\n\nRevoke Voucher\n\n### Parameters\n\n- `code?: string`\n  Valid 8-digit ZBD Voucher Code\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.vouchers.revoke()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.vouchers.revoke',
         example:
-          'curl https://api.zebedee.io/v0/revoke-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.revoke({ code: 'string' });",
       },
       python: {
         method: 'vouchers.revoke',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.vouchers.revoke(\n    code="string",\n)',
       },
-      typescript: {
-        method: 'client.vouchers.revoke',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.vouchers.revoke({ code: 'string' });",
+          'curl https://api.zebedee.io/v0/revoke-voucher \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -607,19 +607,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.withdrawalRequests.create(amount?: string, callbackUrl?: string, description?: string, expiresIn?: number, internalId?: string): void`\n\n**post** `/v0/withdrawal-requests`\n\nStart creating Bitcoin voucher QR codes.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Withdrawal Request -> in millisatoshis\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Charge updates to\n\n- `description?: string`\n  Note or comment for this Withdrawal Request\n\n- `expiresIn?: number`\n  Time until Withdrawal Request expiration -> in seconds\n\n- `internalId?: string`\n  Open metadata string property\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.withdrawalRequests.create()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.withdrawalRequests.create',
         example:
-          'curl https://api.zebedee.io/v0/withdrawal-requests \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.withdrawalRequests.create({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  internalId: 'string',\n});",
       },
       python: {
         method: 'withdrawal_requests.create',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.withdrawal_requests.create(\n    amount="string",\n    callback_url="string",\n    description="string",\n    expires_in=NaN,\n    internal_id="string",\n)',
       },
-      typescript: {
-        method: 'client.withdrawalRequests.create',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.withdrawalRequests.create({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  expiresIn: NaN,\n  internalId: 'string',\n});",
+          'curl https://api.zebedee.io/v0/withdrawal-requests \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -635,19 +635,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.withdrawalRequests.retrieve(id: string): void`\n\n**get** `/v0/withdrawal-requests/{id}`\n\nRetrieve all data about a single Withdrawal Request.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.withdrawalRequests.retrieve('id')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.withdrawalRequests.retrieve',
         example:
-          'curl https://api.zebedee.io/v0/withdrawal-requests/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.withdrawalRequests.retrieve('id');",
       },
       python: {
         method: 'withdrawal_requests.retrieve',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.withdrawal_requests.retrieve(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.withdrawalRequests.retrieve',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.withdrawalRequests.retrieve('id');",
+          'curl https://api.zebedee.io/v0/withdrawal-requests/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -663,18 +663,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.lightningPayments.retrieve(id: string): void`\n\n**get** `/v0/payments/{id}`\n\nRetrieve all data about a single Payment.\n\n### Parameters\n\n- `id: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningPayments.retrieve('id')\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/payments/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.lightningPayments.retrieve',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningPayments.retrieve('id');",
       },
       python: {
         method: 'lightning_payments.retrieve',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_payments.retrieve(\n    "id",\n)',
       },
-      typescript: {
-        method: 'client.lightningPayments.retrieve',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningPayments.retrieve('id');",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/payments/$ID \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -696,19 +696,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## send\n\n`client.lightningPayments.send(amount?: string, callbackUrl?: string, description?: string, internalId?: string, invoice?: string): void`\n\n**post** `/v0/payments`\n\nStart sending instant Bitcoin payments through the ZBD API.\n\n### Parameters\n\n- `amount?: string`\n  Amount to be paid to this Charge/Invoice -> in millisatoshis *(only valid if Amountless Invoice)*\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Payment updates to\n\n- `description?: string`\n  Note or comment for this Payment\n\n- `internalId?: string`\n  Open metadata string property\n\n- `invoice?: string`\n  Lightning Network Payment Request / Charge\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.lightningPayments.send()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.lightningPayments.send',
         example:
-          'curl https://api.zebedee.io/v0/payments \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningPayments.send({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  internalId: 'string',\n  invoice: 'string',\n});",
       },
       python: {
         method: 'lightning_payments.send',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.lightning_payments.send(\n    amount="string",\n    callback_url="string",\n    description="string",\n    internal_id="string",\n    invoice="string",\n)',
       },
-      typescript: {
-        method: 'client.lightningPayments.send',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.lightningPayments.send({\n  amount: 'string',\n  callbackUrl: 'string',\n  description: 'string',\n  internalId: 'string',\n  invoice: 'string',\n});",
+          'curl https://api.zebedee.io/v0/payments \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -723,18 +723,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_balance\n\n`client.wallet.retrieveBalance(): void`\n\n**get** `/v0/wallet`\n\nRetrieve all data about a ZBD Project's Wallet.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.wallet.retrieveBalance()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/wallet \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.wallet.retrieveBalance',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.wallet.retrieveBalance();",
       },
       python: {
         method: 'wallet.retrieve_balance',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.wallet.retrieve_balance()',
       },
-      typescript: {
-        method: 'client.wallet.retrieveBalance',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.wallet.retrieveBalance();",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/wallet \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -749,18 +749,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list_prod_ips\n\n`client.utils.listProdIPs(): void`\n\n**get** `/v0/prod-ips`\n\nGet the official IP addresses of ZBD servers.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.utils.listProdIPs()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/prod-ips \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.utils.listProdIPs',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.listProdIPs();",
       },
       python: {
         method: 'utils.list_prod_ips',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.utils.list_prod_ips()',
       },
-      typescript: {
-        method: 'client.utils.listProdIPs',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.listProdIPs();",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/prod-ips \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -776,19 +776,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## check_ip_support\n\n`client.utils.checkIPSupport(ip: string): void`\n\n**get** `/v0/is-supported-region/{ip}`\n\nVerify if a user is coming from a supported region.\n\n### Parameters\n\n- `ip: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.utils.checkIPSupport('ip')\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.utils.checkIPSupport',
         example:
-          'curl https://api.zebedee.io/v0/is-supported-region/$IP \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.checkIPSupport('ip');",
       },
       python: {
         method: 'utils.check_ip_support',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.utils.check_ip_support(\n    "ip",\n)',
       },
-      typescript: {
-        method: 'client.utils.checkIPSupport',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.checkIPSupport('ip');",
+          'curl https://api.zebedee.io/v0/is-supported-region/$IP \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -803,18 +803,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_btc_usd\n\n`client.utils.retrieveBtcUsd(): void`\n\n**get** `/v0/btcusd`\n\nGet the latest price for Bitcoin in US Dollars.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.utils.retrieveBtcUsd()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v0/btcusd \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+      typescript: {
+        method: 'client.utils.retrieveBtcUsd',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.retrieveBtcUsd();",
       },
       python: {
         method: 'utils.retrieve_btc_usd',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.utils.retrieve_btc_usd()',
       },
-      typescript: {
-        method: 'client.utils.retrieveBtcUsd',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.retrieveBtcUsd();",
+      http: {
+        example: 'curl https://api.zebedee.io/v0/btcusd \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -830,19 +830,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## decode_lightning_charge\n\n`client.utils.decodeLightningCharge(invoice?: string): void`\n\n**post** `/v0/decode-invoice`\n\nUnderstand the inner properties of a Charge QR code.\n\n### Parameters\n\n- `invoice?: string`\n  The Charge or Invoice QR code contents\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.utils.decodeLightningCharge()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.utils.decodeLightningCharge',
         example:
-          'curl https://api.zebedee.io/v0/decode-invoice \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.decodeLightningCharge({ invoice: 'string' });",
       },
       python: {
         method: 'utils.decode_lightning_charge',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.utils.decode_lightning_charge(\n    invoice="string",\n)',
       },
-      typescript: {
-        method: 'client.utils.decodeLightningCharge',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.utils.decodeLightningCharge({ invoice: 'string' });",
+          'curl https://api.zebedee.io/v0/decode-invoice \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -857,18 +857,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create_authorization_url\n\n`client.oauth2.createAuthorizationURL(): void`\n\n**get** `/v1/oauth2/authorize`\n\nCreate an authorization URL for ZBD Login.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.createAuthorizationURL()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v1/oauth2/authorize',
+      typescript: {
+        method: 'client.oauth2.createAuthorizationURL',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.createAuthorizationURL();",
       },
       python: {
         method: 'oauth2.create_authorization_url',
         example:
           'from zbdpay import ZbdPayments\n\nclient = ZbdPayments()\nclient.oauth2.create_authorization_url()',
       },
-      typescript: {
-        method: 'client.oauth2.createAuthorizationURL',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.createAuthorizationURL();",
+      http: {
+        example: 'curl https://api.zebedee.io/v1/oauth2/authorize',
       },
     },
   },
@@ -883,17 +883,17 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## refresh_token\n\n`client.oauth2.refreshToken(): void`\n\n**post** `/v1/oauth2/token`\n\nGenerate a new accessToken for a ZBD Login user.\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.refreshToken()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v1/oauth2/token \\\n    -X POST',
+      typescript: {
+        method: 'client.oauth2.refreshToken',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.refreshToken();",
       },
       python: {
         method: 'oauth2.refresh_token',
         example: 'from zbdpay import ZbdPayments\n\nclient = ZbdPayments()\nclient.oauth2.refresh_token()',
       },
-      typescript: {
-        method: 'client.oauth2.refreshToken',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.refreshToken();",
+      http: {
+        example: 'curl https://api.zebedee.io/v1/oauth2/token \\\n    -X POST',
       },
     },
   },
@@ -909,18 +909,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_user_data\n\n`client.oauth2.retrieveUserData(usertoken?: string): void`\n\n**get** `/v1/oauth2/user`\n\nFetch user-related information about a logged-in ZBD User.\n\n### Parameters\n\n- `usertoken?: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveUserData()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v1/oauth2/user',
+      typescript: {
+        method: 'client.oauth2.retrieveUserData',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveUserData();",
       },
       python: {
         method: 'oauth2.retrieve_user_data',
         example:
           'from zbdpay import ZbdPayments\n\nclient = ZbdPayments()\nclient.oauth2.retrieve_user_data()',
       },
-      typescript: {
-        method: 'client.oauth2.retrieveUserData',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveUserData();",
+      http: {
+        example: 'curl https://api.zebedee.io/v1/oauth2/user',
       },
     },
   },
@@ -936,18 +936,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_wallet_data\n\n`client.oauth2.retrieveWalletData(usertoken?: string): void`\n\n**get** `/v1/oauth2/wallet`\n\nFetch wallet-related information about a logged-in ZBD User.\n\n### Parameters\n\n- `usertoken?: string`\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveWalletData()\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.zebedee.io/v1/oauth2/wallet',
+      typescript: {
+        method: 'client.oauth2.retrieveWalletData',
+        example:
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveWalletData();",
       },
       python: {
         method: 'oauth2.retrieve_wallet_data',
         example:
           'from zbdpay import ZbdPayments\n\nclient = ZbdPayments()\nclient.oauth2.retrieve_wallet_data()',
       },
-      typescript: {
-        method: 'client.oauth2.retrieveWalletData',
-        example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.oauth2.retrieveWalletData();",
+      http: {
+        example: 'curl https://api.zebedee.io/v1/oauth2/wallet',
       },
     },
   },
@@ -970,19 +970,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       '## send\n\n`client.keysendPayments.send(amount?: string, callbackUrl?: string, metadata?: object, pubkey?: string, tlvRecords?: string[], value?: string): void`\n\n**post** `/v0/keysend-payment`\n\nStart sending Keysend payments on the Lightning Network.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Payment -> in millisatoshis\n\n- `callbackUrl?: string`\n  The endpoint ZBD will POST Keysend Payment updates to\n\n- `metadata?: object`\n  Open metadata object property\n\n- `pubkey?: string`\n  The Public Key for the destination Lightning node\n\n- `tlvRecords?: string[]`\n  List of TLV records\n  <Expandable title="tlvRecord" defaultOpen>\n    <ParamField body="type" type="number" initialValue={123456}>\n      type of the TLV record\n\n- `value?: string`\n  value of the TLV record (hex encoded string)\n\n### Example\n\n```typescript\nimport ZbdPayments from \'@zbdpay/payments-sdk\';\n\nconst client = new ZbdPayments();\n\nawait client.keysendPayments.send()\n```',
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.keysendPayments.send',
         example:
-          'curl https://api.zebedee.io/v0/keysend-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.keysendPayments.send({\n  amount: 'string',\n  callbackUrl: 'string',\n  metadata: true,\n  pubkey: 'string',\n  tlvRecords: null,\n  value: 'myTLVRecordValue',\n});",
       },
       python: {
         method: 'keysend_payments.send',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.keysend_payments.send(\n    amount="string",\n    callback_url="string",\n    metadata=True,\n    pubkey="string",\n    tlv_records=None,\n    value="myTLVRecordValue",\n)',
       },
-      typescript: {
-        method: 'client.keysendPayments.send',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.keysendPayments.send({\n  amount: 'string',\n  callbackUrl: 'string',\n  metadata: true,\n  pubkey: 'string',\n  tlvRecords: null,\n  value: 'myTLVRecordValue',\n});",
+          'curl https://api.zebedee.io/v0/keysend-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
@@ -998,19 +998,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## send\n\n`client.emailPayments.send(amount?: string, comment?: string, email?: string): void`\n\n**post** `/v0/email/send-payment`\n\nSend instant Bitcoin payments to any email.\n\n### Parameters\n\n- `amount?: string`\n  The amount for the Payment -> in millisatoshis\n\n- `comment?: string`\n  Note / description of this Payment (may be shown to recipient)\n\n- `email?: string`\n  The Email of the intended recipient (e.g. info@zebedee.io)\n\n### Example\n\n```typescript\nimport ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments();\n\nawait client.emailPayments.send()\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.emailPayments.send',
         example:
-          'curl https://api.zebedee.io/v0/email/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
+          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.emailPayments.send({\n  amount: 'string',\n  comment: 'string',\n  email: 'string',\n});",
       },
       python: {
         method: 'email_payments.send',
         example:
           'import os\nfrom zbdpay import ZbdPayments\n\nclient = ZbdPayments(\n    apikey=os.environ.get("ZBD_PAYMENTS_API_KEY"),  # This is the default and can be omitted\n)\nclient.email_payments.send(\n    amount="string",\n    comment="string",\n    email="string",\n)',
       },
-      typescript: {
-        method: 'client.emailPayments.send',
+      http: {
         example:
-          "import ZbdPayments from '@zbdpay/payments-sdk';\n\nconst client = new ZbdPayments({\n  apikey: process.env['ZBD_PAYMENTS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.emailPayments.send({\n  amount: 'string',\n  comment: 'string',\n  email: 'string',\n});",
+          'curl https://api.zebedee.io/v0/email/send-payment \\\n    -X POST \\\n    -H "apikey: $ZBD_PAYMENTS_API_KEY"',
       },
     },
   },
